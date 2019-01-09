@@ -34,21 +34,23 @@ int main()
 	insertSeqList(&seq1, 1, 1);
 	deleteElem(&seq1, 1, &value1);
 	insertSeqList(&seq1, 1, 1);
+	showSeqList(&seq1);
+
 	inverseSeqList(&seq1);
+	showSeqList(&seq1);
+
 	//printf("%d\n", value1);
 	sortSeqList(&seq1);
-	printf("查找元素为%d的下标是:%d\n", 4, getElemIndex(&seq1, 4));
 	//destorySeqList(&seq1);
 	showSeqList(&seq1);
-	int i;
-	scanf("%d", &i);
+	printf("查找元素为%d的下标是:%d\n", 4, getElemIndex(&seq1, 4));
 	return 0;
 }
 
 
 void initSeqList(struct SeqList *pSeqList, int len)
 {
-	pSeqList->first = (int *)malloc(sizeof(struct SeqList)*len);
+	pSeqList->first = (int *)malloc(sizeof(int)*len);
 	if (NULL == pSeqList->first)		//如果首地址为空，显示内存分配失败并且退出程序
 	{
 		printf("内存分配失败！\n");
@@ -73,6 +75,7 @@ void showSeqList(struct SeqList * pSeqList)
 		{
 			printf("%d ", pSeqList->first[i]);
 		}
+		printf("\n");
 	}
 }
 
